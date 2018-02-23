@@ -3,7 +3,7 @@
   <div id="app">
     <AppNavbar/>
     <router-view/>
-    <!-- <AppFooter/> -->
+    <AppFooter/>
   </div>
 </template>
 
