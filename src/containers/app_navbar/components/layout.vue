@@ -12,6 +12,10 @@
         <b-nav-item href="#/about">About</b-nav-item>
       </b-navbar-nav>
 
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item href="#/terms">Terms</b-nav-item>
+      </b-navbar-nav>
+
     </b-collapse>
   </b-navbar>
 </template>
