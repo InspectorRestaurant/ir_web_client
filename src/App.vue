@@ -45,4 +45,7 @@ export default {
     height: 100%
     width: 100%
 
+    .container, .contianer-fluid
+      padding-top: 4rem
+
 </style>

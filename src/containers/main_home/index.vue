@@ -1,13 +1,20 @@
 <template>
   <div class="container h-100">
-<!--  for some reason, this height is showing up wierdly on my screen, the footer can now be scrolled up instead of staying at the bottom-->
     <div class="row h-100 align-items-center">
       <div class="col-lg-12">
 
-        <div class="row mb-3 pb-2">
+        <div class="row mb-2 pb-2">
           <div class="col-lg-12 text-center">
-<!--             <img class='logo' src="@/assets/logo.png"> -->
-            <h1>InspectorRestaurant</h1>
+            <!-- <img class='logo' src="@/assets/logo.png"> -->
+
+            <h1>
+              <strong>Inspector</strong>Restaurant
+            </h1>
+
+            <p class="lead">
+              How clean is your favorite restaurant?
+            </p>
+
           </div>
         </div>
 
@@ -16,35 +23,20 @@
             <ul class='list-group'>
               <li class='list-group-item' v-for="each in results" :key="each._id">
                 {{ each.facility }}
-<!--                 <pre class='text-light bg-dark'>{{ each.inspections.length }}</pre> -->
+                <!-- <pre class='text-light bg-dark'>{{ each.inspections.length }}</pre> -->
               </li>
             </ul>
           </div>
         </div>
 
-        <div class="row py-4">
+        <div class="row py-3">
           <div class="col-lg-12 text-center input-group mb-3">
-            <input type='text' class='form-control' placeholder="which restaurant are you checking?" v-on:keyup.enter='restaurant_autofill'>
-            <input type='text' class='form-control' placeholder="which city do you want to check?"v-on:keyup.enter='city_autofill'>
-            <button type='submit' class='btn btn-primary mx-2 px-1.5' v-on:click="submitsearch">search</button>
-
-            <!--
-<button v-if="showButton" @click="onButtonClick" class="btn btn-primary" >
-              {{ buttonText }}
+            <input type='text' class='form-control' placeholder="City in NY state" v-on:input='city_autofill'>
+            <input type='text' class='form-control' placeholder="Restaurant" v-on:input='restaurant_autofill'>
+            <button type='submit' class='btn btn-primary mx-2 px-1.5' @click="submitSearch()">
+              <i class="fa fa-fw fa-search mr-2"></i>
+              Search
             </button>
-
-            <button v-else @click="onButtonClick" class="btn btn-success" >
-              {{ buttonText }}
-            </button>
-
-            <br/>
-            <br/>
-
-            <ButtonComponent buttonText="Hello!" />
-            <ButtonComponent v-bind:buttonText='queryString' />
-            <ButtonComponent :buttonText='buttonText' />
-          -->
-
           </div>
 
         </div>
@@ -57,10 +49,11 @@
 <!-- // // // //  -->
 
 <script>
-// import ButtonComponent from './myButton'
 
+// TODO - abstract this into the Vuex store
 // Fetch Restaurants from API
 function fetchRestaurants () {
+  // TODO - drop CORS_ANYWHERE
   // Uses CORS Anywhere to handle errors cropping up from cross-origin requests
   const CORS_ANYWHERE = 'https://cors-anywhere.herokuapp.com'
 
@@ -82,10 +75,7 @@ function fetchRestaurants () {
 export default {
   name: 'main_home',
   metaInfo: {
-    title: 'Main - Home'
-  },
-  components: {
-//     ButtonComponent
+    title: 'Home'
   },
   data () {
     return {
@@ -96,32 +86,16 @@ export default {
     }
   },
   methods: {
-    onButtonClick () {
-      if (this.buttonText === 'Checked') {
-        this.buttonText = 'Unchecked'
-        this.showButton = true
-      } else {
-        this.buttonText = 'Checked'
-        this.showButton = false
-      }
-    },
-
-    submitsearch () {
-//       search+redirect
+    submitSearch () {
       fetchRestaurants()
       .then((results) => {
         this.results = results.items
       })
     },
-
     restaurant_autofill () {
-//      restaurant autofill function
     },
-
     city_autofill () {
-//      city autofill function
     }
-
   }
 }
 </script>
