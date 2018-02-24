@@ -3,7 +3,7 @@
     <div class="row h-100 align-items-center">
       <div class="col-lg-12">
 
-        <div class="row mb-3 pb-2">
+        <div class="row mb-2 pb-2">
           <div class="col-lg-12 text-center">
             <!-- <img class='logo' src="@/assets/logo.png"> -->
 
@@ -29,7 +29,7 @@
           </div>
         </div>
 
-        <div class="row py-4">
+        <div class="row py-3">
           <div class="col-lg-12 text-center input-group mb-3">
             <input type='text' class='form-control' placeholder="City in NY state" v-on:input='city_autofill'>
             <input type='text' class='form-control' placeholder="Restaurant" v-on:input='restaurant_autofill'>
