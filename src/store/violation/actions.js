@@ -7,6 +7,7 @@ import { API_ROOT } from './constants'
 // functions that causes side effects and can involve asynchronous operations.
 export default {
   fetchCollection: ({ state, commit }) => {
+    if (state.fetched) return
     commit('fetching', true)
 
     // Fetches Collection from the server

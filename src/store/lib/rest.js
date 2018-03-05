@@ -1,3 +1,4 @@
+const qs = require('qs')
 
 // REST verbs
 const GET = 'get'
@@ -21,8 +22,19 @@ function buildRequest (verb, options) {
   // Appends body to request if it's defined
   if (options.body) req.body = JSON.stringify(options.body)
 
+  //
+  if (options.body) req.body = JSON.stringify(options.body)
+
   // Returns the request
   return req
+}
+
+// Defines the URL for a request
+function buildUrl (url, options) {
+  if (options.query) {
+    url = [url, '?', qs.stringify(options.query)].join('')
+  }
+  return url
 }
 
 // TODO - this function should return the server-provided error messages
@@ -37,7 +49,7 @@ function handleErrors (response) {
 
 // $POST helper function
 export const $POST = function (url, options = {}) {
-  return fetch(url, buildRequest(POST, options))
+  return fetch(buildUrl(url, options), buildRequest(POST, options))
   .then(handleErrors)
   .then((response) => { return response.json() })
 }
@@ -46,7 +58,7 @@ export const $POST = function (url, options = {}) {
 
 // $GET Helper function
 export const $GET = function (url, options = {}) {
-  return fetch(url, buildRequest(GET, options))
+  return fetch(buildUrl(url, options), buildRequest(GET, options))
   .then(handleErrors)
   .then((response) => { return response.json() })
 }
@@ -55,7 +67,7 @@ export const $GET = function (url, options = {}) {
 
 // $PUT helper function
 export const $PUT = function (url, options = {}) {
-  return fetch(url, buildRequest(PUT, options))
+  return fetch(buildUrl(url, options), buildRequest(PUT, options))
   .then(handleErrors)
   .then((response) => { return response.json() })
 }
@@ -64,7 +76,7 @@ export const $PUT = function (url, options = {}) {
 
 // $DEL helper function
 export const $DEL = function (url, options = {}) {
-  return fetch(url, buildRequest(DELETE, options))
+  return fetch(buildUrl(url, options), buildRequest(DELETE, options))
   .then(handleErrors)
   .then((response) => { return response.json() })
 }

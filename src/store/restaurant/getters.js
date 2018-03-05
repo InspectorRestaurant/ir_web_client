@@ -8,6 +8,9 @@ export default {
   model: state => {
     return state.model
   },
+  selected_model_id: state => {
+    return state.selected_model_id
+  },
   page: state => {
     return state.page
   },
@@ -17,8 +20,14 @@ export default {
   fetching: state => {
     return state.fetching
   },
+  fetching_model: state => {
+    return state.fetching_model
+  },
   filter: state => {
     return state.filter
+  },
+  city: state => {
+    return state.city
   },
   showingInactive: state => {
     return state.showingInactive

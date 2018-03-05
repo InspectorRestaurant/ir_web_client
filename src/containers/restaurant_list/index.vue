@@ -1,15 +1,21 @@
 <template>
   <div class="container">
 
-    <Search :module='"restaurant"' />
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <CitySearch :dispatch="true" />
+      </div>
+      <div class="col-lg-8 pl-lg-0 col-md-6 col-sm-12">
+        <Search :module='"restaurant"' placeholder="Filter Restaurants" />
+      </div>
+    </div>
 
     <div class="row">
-      <div class="col-lg-12">
-        <ul class="list-group">
-          <a :href="'#/restaurants/' + model._id" class="list-group-item" v-for='model in collection'>
-            {{ model.facility }}
-          </a>
-        </ul>
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <RestaurantList v-if="!fetching" />
+      </div>
+      <div class="col-lg-8 pl-lg-0 col-md-6 col-sm-12">
+        <RestaurantDetail v-if="!fetching" />
       </div>
     </div>
 
@@ -20,7 +26,10 @@
 
 <script>
 import Search from '@/components/Search'
-import { mapActions, mapGetters } from 'vuex'
+import CitySearch from '@/components/CitySearch'
+import RestaurantList from './RestaurantList'
+import RestaurantDetail from './RestaurantDetail'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'restaurant_list',
@@ -28,16 +37,29 @@ export default {
     title: 'Restaurants'
   },
   components: {
-    Search
+    Search,
+    CitySearch,
+    RestaurantList,
+    RestaurantDetail
   },
   created () {
-    this.fetch()
+    this.fetchViolations()
+    if (this.$route.query.city) {
+      this.$store.dispatch('restaurant/setCity', this.$route.query.city)
+    } else {
+      this.fetch()
+    }
+  },
+  destroyed () {
+    console.log('DESTROYED')
+    this.$store.commit('restaurant/city', '')
   },
   methods: mapActions({
-    fetch: 'restaurant/fetchCollection'
+    fetch: 'restaurant/fetchCollection',
+    fetchViolations: 'violation/fetchCollection'
   }),
   computed: mapGetters({
-    collection: 'restaurant/filteredCollection'
+    fetching: 'restaurant/fetching'
   })
 }
 </script>

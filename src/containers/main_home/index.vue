@@ -19,15 +19,9 @@
         </div>
 
         <div class="row py-3">
-          <div class="col-lg-12 text-center input-group mb-3">
-            <input type='text' class='form-control' placeholder="City in NY state" v-on:input='city_autofill'>
-            <input type='text' class='form-control' placeholder="Restaurant" v-on:input='restaurant_autofill'>
-            <button type='submit' class='btn btn-primary mx-2 px-1.5' @click="submitSearch()">
-              <i class="fa fa-fw fa-search mr-2"></i>
-              Search
-            </button>
+          <div class="col-sm-12">
+            <CitySearch />
           </div>
-
         </div>
 
       </div>
@@ -38,11 +32,14 @@
 <!-- // // // //  -->
 
 <script>
-
+import CitySearch from '@/components/CitySearch'
 export default {
   name: 'main_home',
   metaInfo: {
     title: 'Home'
+  },
+  components: {
+    CitySearch
   },
   data () {
     return {
@@ -50,14 +47,6 @@ export default {
       buttonText: 'Checked',
       showButton: true,
       results: []
-    }
-  },
-  methods: {
-    submitSearch () {
-    },
-    restaurant_autofill () {
-    },
-    city_autofill () {
     }
   }
 }

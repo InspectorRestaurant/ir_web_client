@@ -6,15 +6,15 @@ import { API_ROOT } from './constants'
 // City actions
 export default {
   fetchCollection: ({ state, commit }) => {
+    if (state.fetched) return
     commit('fetching', true)
 
     // Fetches Collection from the server
     $GET(API_ROOT)
     .then((json) => {
-      commit('page', json.page)
-      commit('per_page', json.per_page)
-      commit('collection', json.items)
+      commit('collection', json)
       commit('fetching', false)
+      commit('fetched', true)
     })
     .catch((err) => {
       commit('fetching', false)
@@ -22,6 +22,7 @@ export default {
     })
   },
 
+  // TODO - remove
   toggleOrderBy ({ state, commit }) {
     const ORDER_ASC = 'asc'
     const ORDER_DESC = 'desc'
