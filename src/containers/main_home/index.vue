@@ -18,17 +18,6 @@
           </div>
         </div>
 
-        <div class='row'>
-          <div class='col-lg-12'>
-            <ul class='list-group'>
-              <li class='list-group-item' v-for="each in results" :key="each._id">
-                {{ each.facility }}
-                <!-- <pre class='text-light bg-dark'>{{ each.inspections.length }}</pre> -->
-              </li>
-            </ul>
-          </div>
-        </div>
-
         <div class="row py-3">
           <div class="col-lg-12 text-center input-group mb-3">
             <input type='text' class='form-control' placeholder="City in NY state" v-on:input='city_autofill'>
@@ -50,28 +39,6 @@
 
 <script>
 
-// TODO - abstract this into the Vuex store
-// Fetch Restaurants from API
-function fetchRestaurants () {
-  // TODO - drop CORS_ANYWHERE
-  // Uses CORS Anywhere to handle errors cropping up from cross-origin requests
-  const CORS_ANYWHERE = 'https://cors-anywhere.herokuapp.com'
-
-  // Assembles API_ENPOINT
-  const API_ENDPOINT = `${CORS_ANYWHERE}/http://inspector.restaurant/app/api/restaurants`
-
-  // Returns a Promise to manage async behavior
-  return new Promise((resolve, reject) => {
-    fetch(API_ENDPOINT)
-    .then((response) => {
-      return response.json()
-    })
-    .then((response) => {
-      return resolve(response)
-    })
-  })
-}
-
 export default {
   name: 'main_home',
   metaInfo: {
@@ -87,10 +54,6 @@ export default {
   },
   methods: {
     submitSearch () {
-      fetchRestaurants()
-      .then((results) => {
-        this.results = results.items
-      })
     },
     restaurant_autofill () {
     },

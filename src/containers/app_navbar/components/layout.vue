@@ -9,6 +9,8 @@
     <b-collapse is-nav id="nav_collapse">
 
       <b-navbar-nav class="mr-auto">
+        <b-nav-item href="#/cities">Cities</b-nav-item>
+        <b-nav-item href="#/restaurants">Restaurants</b-nav-item>
         <b-nav-item href="#/about">About</b-nav-item>
       </b-navbar-nav>
 
