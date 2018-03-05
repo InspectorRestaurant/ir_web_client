@@ -1,16 +1,31 @@
 <template>
-  <footer class="footer bg-dark text-light">
-    <div class="container-fluid text-right">
+  <footer class="footer">
+    <div class="container-fluid bg-dark text-light border-top">
+      <div class="row">
 
-      <!-- Place this tag where you want the button to render. -->
-      <a class="github-button" href="https://github.com/aeksco" data-size="large" data-show-count="true" aria-label="Follow @aeksco on GitHub">Follow @aeksco</a>
+        <div class="col-sm-6">
+          Built with
+          <i class="fa fa-heart ml-1 text-danger"></i>
+          &nbsp;by&nbsp;
+          <a href="https://github.com/InspectorRestaurant" target='_blank'>
+            InspectorRestaurant
+          </a>
+          &nbsp;at&nbsp;
+          <a href="https://rpi.edu" target='_blank' class='text-danger'>
+            RPI
+          </a>
+        </div>
 
-      <a class="github-button" href="https://github.com/blazeplate/blazeplate_web_client" data-size="large" data-show-count="true" aria-label="Star blazeplate/blazeplate_web_client on GitHub">Star</a>
+        <div class="col-sm-6 text-right">
+          <small class='text-muted'>
+            <a href="#/terms" class='text-muted'>
+              <i class="fa fa-fw fa-info-circle"></i>
+              Terms of use
+            </a>
+          </small>
+        </div>
 
-      <!-- <a target="_blank" href="https://github.com/aeksco"> -->
-        <!-- <i class="fa fa-fw fa-github mr-2"></i> -->
-        <!-- aeksco -->
-      <!-- </a> -->
+      </div>
     </div>
   </footer>
 </template>
@@ -22,9 +37,9 @@ export default {}
 <style lang="sass">
 
   footer.footer
-    position: absolute
-    bottom: 0
+    z-index: 1000
+    position: fixed
     width: 100%
-    line-height: 60px
-
+    bottom: 0
+    line-height: 3rem
 </style>
