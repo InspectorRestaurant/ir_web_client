@@ -14,9 +14,15 @@
           <a href="https://rpi.edu" target='_blank' class='text-danger'>
             RPI
           </a>
+
         </div>
 
         <div class="col-sm-6 text-right">
+          Data provided by
+          <a href="https://health.data.ny.gov/Health/Food-Service-Establishment-Inspections-Beginning-2/2hcc-shji" target='_blank'>
+            health.data.ny.gov
+          </a>
+          &nbsp;&nbsp;&nbsp;
           <small class='text-muted'>
             <a href="#/terms" class='text-muted'>
               <i class="fa fa-fw fa-info-circle"></i>

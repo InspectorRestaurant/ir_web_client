@@ -14,7 +14,14 @@
         <hr>
 
         <p class="lead">
-          The data provided by InspectorRestaurant is offered without any explicit or implied promises or guaranteees of correctness or validity.
+          The data made available by InspectorRestaurant is offered without any explicit or implied promises or guaranteees of correctness or validity.
+        </p>
+
+        <p class="lead">
+          Data provided by
+          <a href="https://health.data.ny.gov/Health/Food-Service-Establishment-Inspections-Beginning-2/2hcc-shji" target='_blank'>
+            health.data.ny.gov
+          </a>
         </p>
 
       </div>
