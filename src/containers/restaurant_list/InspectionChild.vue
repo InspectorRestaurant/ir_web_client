@@ -1,7 +1,10 @@
 <template>
   <a :class="className" @click="toggleViolations()">
     <div class="row px-4 py-4">
-      <div class="col-sm-3">
+      <div class="col-sm-4 align-items-center d-flex">
+        <span :class="`badge badge-${score.css} grade-badge mr-4`">
+          {{ score.grade }}
+        </span>
         <span class='hover-hide'>
           <i class="fa fa-fw fa-calendar-o"></i>
           {{ howLongAgo}}
@@ -11,28 +14,33 @@
           {{ inspection.date }}
         </span>
       </div>
-      <div class="col-sm-9 text-right">
+      <div class="col-sm-8 text-right">
         <span class="badge badge-secondary" v-if="inspection.type !== 'Inspection'">
           {{ inspection.type }}
+        </span>
+        <span :class="`badge badge-${score.css}`">
+          {{text}}
         </span>
         <span class="badge badge-primary" v-b-tooltip.hover.top :title="inspection.comment" v-if="inspection.comment">
           <i class="fa fa-fw fa-comment"></i>
           Comments
         </span>
-        <span :class="badge">
-          <i :class="icon"></i>
-          {{text}}
-        </span>
+        <!-- <span :class="badge"> -->
+          <!-- <i :class="icon"></i> -->
+        <!-- </span> -->
       </div>
     </div>
     <div class="row mt-2" v-if="hasViolations() && expanded">
+      <!-- <div class="col-sm-12"> -->
+        <!-- <pre class="bg-dark text-light">{{ violations }}</pre> -->
+      <!-- </div> -->
+
       <div class="col-sm-12">
         <ul class="list-group list-group-flush">
           <li class="list-group-item" v-for="v in violations">
             <span class="badge badge-secondary">
               {{ v.vid }}
             </span>
-
             {{ v.desc }}
           </li>
         </ul>
@@ -105,12 +113,40 @@ export default {
       return _.filter(this.$store.getters['violation/collection'], (v) => {
         return this.inspection.violations.includes(v.vid)
       })
+    },
+    score () {
+      let violations = _.filter(this.$store.getters['violation/collection'], (v) => {
+        return this.inspection.violations.includes(v.vid)
+      })
+
+      let score = 0
+      _.each(violations, (v) => {
+        if (v.critical) {
+          score += 5
+        } else {
+          score += 2
+        }
+      })
+
+      // Defines score
+      if (score < 14) {
+        return { grade: 'A', css: 'success' }
+      } else if (score < 28) {
+        return { grade: 'B', css: 'primary' }
+      } else if (score < 42) {
+        return { grade: 'C', css: 'warning' }
+      } else {
+        return { grade: 'D', css: 'danger' }
+      }
     }
   }
 }
 </script>
 
 <style lang="sass" scoped>
+  span.badge.grade-badge
+    font-size: 120%
+
   a.list-group-item
     span.hover-hide
       display: block
