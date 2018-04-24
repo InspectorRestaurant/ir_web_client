@@ -29,7 +29,7 @@
 
       <div class="col-lg-12">
         <ul class="list-group">
-          <InspectionChild :inspection="inspection" v-for="inspection in inspections" />
+          <InspectionChild :inspection="inspection" v-for="inspection in inspections" :key="inspection.date" />
         </ul>
       </div>
 

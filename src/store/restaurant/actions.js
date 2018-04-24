@@ -2,6 +2,7 @@ import _ from 'lodash'
 import { $GET } from '@/store/lib/rest'
 import router from '@/routers'
 import { API_ROOT } from './constants'
+import { PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
 let debouncedFetch
 
@@ -10,26 +11,17 @@ let debouncedFetch
 // Project module actions
 // functions that causes side effects and can involve asynchronous operations.
 export default {
-  fetchCollection: ({ state, commit, dispatch }) => {
+  ...PAGINATION_ACTIONS,
+  fetchCollection: ({ state, getters, commit, dispatch }) => {
     commit('fetching', true)
 
-    let opts = {
-      query: {
-        page: state.page,
-        per_page: state.per_page
-      }
-    }
-    let api_endpoint = API_ROOT
-
-    // Handles /api/restaurants/search
-    if (state.city || state.filter) {
-      api_endpoint += '/search'
-      if (state.city) opts.query.city = state.city
-      if (state.filter) opts.query.q = state.filter
-    }
-
     // Fetches Collection from the server
-    $GET(api_endpoint, opts)
+    $GET(getters['fetchUrl'], {
+      query: {
+        ...getters['paginationQuery'],
+        ...getters['apiQuery']
+      }
+    })
     .then((json) => {
       commit('page', json.page)
       commit('per_page', json.per_page)

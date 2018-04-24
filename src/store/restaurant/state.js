@@ -1,10 +1,11 @@
+import { PAGINATION_STATE } from '@/store/lib/mixins'
+
 // Restaurant Module State
 export default {
+  ...PAGINATION_STATE,
   collection: [],
   model: {},
   selected_model_id: '',
-  page: 0,
-  per_page: 10,
   fetching: false,
   fetching_model: false,
   filter: '',

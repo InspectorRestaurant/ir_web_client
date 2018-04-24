@@ -22,9 +22,6 @@ function buildRequest (verb, options) {
   // Appends body to request if it's defined
   if (options.body) req.body = JSON.stringify(options.body)
 
-  //
-  if (options.body) req.body = JSON.stringify(options.body)
-
   // Returns the request
   return req
 }

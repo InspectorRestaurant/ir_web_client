@@ -1,7 +1,10 @@
 import _ from 'lodash'
+import { API_ROOT } from './constants'
+import { PAGINATION_GETTERS } from '@/store/lib/mixins'
 
 // Project Module Getters
 export default {
+  ...PAGINATION_GETTERS,
   collection: state => {
     return state.collection
   },
@@ -10,12 +13,6 @@ export default {
   },
   selected_model_id: state => {
     return state.selected_model_id
-  },
-  page: state => {
-    return state.page
-  },
-  per_page: state => {
-    return state.per_page
   },
   fetching: state => {
     return state.fetching
@@ -45,5 +42,18 @@ export default {
     // .drop(state.start)
     // .take(state.pageSize)
     .value()
+  },
+  apiQuery: state => {
+    let query = {}
+    if (state.city) query.city = state.city
+    if (state.filter) query.q = state.filter
+    return query
+  },
+  fetchUrl: state => {
+    let fetchUrl = API_ROOT
+    if (state.city || state.filter) {
+      fetchUrl += '/search'
+    }
+    return fetchUrl
   }
 }
