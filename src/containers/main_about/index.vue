@@ -59,7 +59,7 @@
           <button class="btn btn-primary bg-light"><a href="#2">next</a></button>
         </div>
 
-        <TeamMember  name="Jonathon"/>
+        <TeamMember  name="Jonathan"/>
 
         <div class="row col-lg-12 align-items-center mb-4">
           <button class="btn btn-primary bg-light"><a href="#3">next</a></button>
