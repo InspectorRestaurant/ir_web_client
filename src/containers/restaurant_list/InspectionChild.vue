@@ -37,7 +37,7 @@
 
       <div class="col-sm-12">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item" v-for="v in violations">
+          <li class="list-group-item" v-for="v in violations" :key="v.id">
             <span class="badge badge-secondary">
               {{ v.vid }}
             </span>
@@ -110,9 +110,15 @@ export default {
       return moment(this.inspection.date).fromNow()
     },
     violations () {
-      return _.filter(this.$store.getters['violation/collection'], (v) => {
+      return _.chain(this.$store.getters['violation/collection'])
+      .filter((v) => {
         return this.inspection.violations.includes(v.vid)
       })
+      .map((v) => {
+        v.id = _.uniqueId('VIOLATION_')
+        return v
+      })
+      .value()
     },
     score () {
       let violations = _.filter(this.$store.getters['violation/collection'], (v) => {

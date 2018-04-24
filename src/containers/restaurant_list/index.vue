@@ -12,6 +12,7 @@
 
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-12">
+        <Pagination module="restaurant" />
         <RestaurantList v-if="!fetching" />
       </div>
       <div class="col-lg-8 pl-lg-0 col-md-6 col-sm-12">
@@ -27,6 +28,7 @@
 <script>
 import Search from '@/components/Search'
 import CitySearch from '@/components/CitySearch'
+import Pagination from '@/components/Pagination'
 import RestaurantList from './RestaurantList'
 import RestaurantDetail from './RestaurantDetail'
 import { mapGetters, mapActions } from 'vuex'
@@ -39,6 +41,7 @@ export default {
   components: {
     Search,
     CitySearch,
+    Pagination,
     RestaurantList,
     RestaurantDetail
   },

@@ -23,7 +23,7 @@ export default {
     select: 'restaurant/selectModel'
   }),
   computed: mapGetters({
-    collection: 'restaurant/filteredCollection'
+    collection: 'restaurant/collection'
   })
 }
 </script>
