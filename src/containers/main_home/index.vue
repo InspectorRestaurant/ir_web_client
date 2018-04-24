@@ -3,21 +3,24 @@
     <div class="row h-100 align-items-center">
       <div class="col-lg-12">
 
-        <div class="row mt-2 mb-4 pb-4">
+        <div class="row mb-2 pb-2">
           <div class="col-lg-12 text-center">
-            <img class='logo' src="@/assets/logo.png">
+            <!-- <img class='logo' src="@/assets/logo.png"> -->
+
+            <h1>
+              <strong>Inspector</strong>Restaurant
+            </h1>
+
+            <p class="lead">
+              How clean is your favorite restaurant?
+            </p>
+
           </div>
         </div>
 
-        <div class="row py-4">
-          <div class="col-lg-12 text-center">
-            <h2>HOME PAGE</h2>
-          </div>
-        </div>
-
-        <div class="row py-4">
-          <div class="col-lg-12 text-center">
-            <h2>Next-generation web application boilerplate.</h2>
+        <div class="row py-3">
+          <div class="col-sm-12">
+            <CitySearch />
           </div>
         </div>
 
@@ -29,11 +32,22 @@
 <!-- // // // //  -->
 
 <script>
-
+import CitySearch from '@/components/CitySearch'
 export default {
   name: 'main_home',
   metaInfo: {
-    title: 'Main - Home'
+    title: 'Home'
+  },
+  components: {
+    CitySearch
+  },
+  data () {
+    return {
+      queryString: 'Shalimar',
+      buttonText: 'Checked',
+      showButton: true,
+      results: []
+    }
   }
 }
 </script>

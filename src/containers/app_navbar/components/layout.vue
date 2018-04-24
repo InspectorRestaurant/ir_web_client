@@ -1,28 +1,27 @@
 <template>
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <b-navbar toggleable="md" type="dark" variant="dark" fixed="top">
 
-    <a class="navbar-brand" href="#/">
+    <b-navbar-brand href="#/">
       <strong>Inspector</strong>Restaurant
-    </a>
+    </b-navbar-brand>
 
-	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-	    <span class="navbar-toggler-icon"></span>
-	  </button>
+    <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+    <b-collapse is-nav id="nav_collapse">
 
-	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <b-navbar-nav class="mr-auto">
+        <b-nav-item href="#/restaurants">Restaurants</b-nav-item>
+        <b-nav-item href="#/about">About</b-nav-item>
+      </b-navbar-nav>
 
-      <ul class="navbar-nav ml-auto">
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item target="_blank" href="https://github.com/InspectorRestaurant">
+          <i class="fa fa-fw fa-lg fa-github"></i>
+          GitHub
+        </b-nav-item>
+      </b-navbar-nav>
 
-        <li class="nav-item">
-          <a class="nav-link" href="#/about">
-            <i class="fa fa-fw fa-question-circle-o"></i>
-            About
-          </a>
-        </li>
-
-	    </ul>
-	  </div>
-	</nav>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>

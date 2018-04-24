@@ -3,7 +3,7 @@
   <div id="app">
     <AppNavbar/>
     <router-view/>
-    <!-- <AppFooter/> -->
+    <AppFooter/>
   </div>
 </template>
 
@@ -44,5 +44,8 @@ export default {
   #app
     height: 100%
     width: 100%
+
+    .container, .contianer-fluid
+      padding-top: 4.5rem
 
 </style>
