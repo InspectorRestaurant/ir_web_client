@@ -1,26 +1,22 @@
 
 <template>
   <div id="app">
-    <AppNavbar/>
+    <Navbar/>
     <router-view/>
-    <AppFooter/>
+    <Footer/>
   </div>
 </template>
 
 <script>
-import AppNavbar from '@/containers/app_navbar'
-import AppFooter from '@/containers/app_footer'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'app',
-
-  // Top-Level Application Components
   components: {
-    AppNavbar,
-    AppFooter
+    Navbar,
+    Footer
   },
-
-  // Top-Level page Meta
   metaInfo: {
     title: 'Loading...', // set a title
     titleTemplate: 'Inspector Restaurant - %s', // title is now "Inspector Restaurant - Loading..."
@@ -44,6 +40,8 @@ export default {
   #app
     height: 100%
     width: 100%
+    // background-image: url('/static/bg.jpg');
+    background-repeat: no-repeat;
 
     .container, .contianer-fluid
       padding-top: 4.5rem

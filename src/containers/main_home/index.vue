@@ -4,8 +4,7 @@
       <div class="col-lg-12">
 
         <div class="row mb-2 pb-2 mt-4">
-          <div class="col-lg-12 text-center text-light">
-            <!-- <img class='logo' src="@/assets/logo.png"> -->
+          <div class="col-lg-12 text-center">
 
             <h1>
               <strong>Inspector</strong>Restaurant

@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="dark" fixed="top">
+  <b-navbar toggleable="md" type="dark" variant="danger" fixed="top">
 
     <b-navbar-brand href="#/">
       <strong>Inspector</strong>Restaurant
@@ -28,8 +28,17 @@
 
 <script>
 export default {
-  name: 'app_navbar'
+  name: 'Navbar'
 }
 </script>
+
+<style lang="sass">
+  a.navbar-brand
+    letter-spacing: 0.15rem
+    strong
+      font-weight: 600
+</style>
+
+
 
 
