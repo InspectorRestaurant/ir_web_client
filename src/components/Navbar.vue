@@ -24,9 +24,12 @@
   </b-navbar>
 </template>
 
-<script>
+<!-- // // // //  -->
 
+<script>
 export default {
-  name: 'Navbar'
+  name: 'app_navbar'
 }
 </script>
+
+

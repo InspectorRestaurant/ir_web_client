@@ -1,10 +1,10 @@
 <template>
   <div class="container h-100">
-    <div class="row h-100 align-items-center">
+    <div class="row h-100">
       <div class="col-lg-12">
 
-        <div class="row mb-2 pb-2">
-          <div class="col-lg-12 text-center">
+        <div class="row mb-2 pb-2 mt-4">
+          <div class="col-lg-12 text-center text-light">
             <!-- <img class='logo' src="@/assets/logo.png"> -->
 
             <h1>
