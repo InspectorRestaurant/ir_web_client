@@ -2,7 +2,7 @@
   <b-navbar toggleable="md" type="dark" variant="danger" fixed="top">
 
     <b-navbar-brand href="#/">
-      <strong>Inspector</strong>Restaurant
+      <strong>Inspector.</strong>Restaurant
     </b-navbar-brand>
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
@@ -25,17 +25,16 @@
 
       <!-- Right Nav -->
       <b-navbar-nav class="ml-auto">
-
-        <b-nav-item target="_blank" href="http://inspector.restaurant/docs/">
-          <i class="fa fa-fw fa-book"></i>
-          Docs
+        <b-nav-item href="#/terms">
+          <i class="fa fa-fw fa-info-circle"></i>
+          Terms of Use
         </b-nav-item>
 
         <b-nav-item disabled>|</b-nav-item>
 
-        <b-nav-item href="#/terms">
-          <i class="fa fa-fw fa-info-circle"></i>
-          Terms of Use
+        <b-nav-item target="_blank" href="http://inspector.restaurant/docs/">
+          <i class="fa fa-fw fa-book"></i>
+          Docs
         </b-nav-item>
 
         <b-nav-item disabled>|</b-nav-item>

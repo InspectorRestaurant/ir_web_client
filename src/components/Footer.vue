@@ -9,7 +9,7 @@
           &nbsp;by&nbsp;
           <a href="https://github.com/InspectorRestaurant" class='text-light' target='_blank'>InspectorRestaurant</a>
           &nbsp;at&nbsp;
-          <a href="https://rpi.edu" target='_blank' class='text-light'>RPI</a>
+          <a href="https://rpi.edu" target='_blank' class='text-danger'>RPI</a>
         </div>
 
         <div class="col-sm-6 text-right">

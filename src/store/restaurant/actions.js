@@ -1,6 +1,5 @@
 import _ from 'lodash'
 import { $GET } from '@/store/lib/rest'
-import router from '@/routers'
 import { API_ROOT } from './constants'
 import { PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
@@ -43,7 +42,9 @@ export default {
     $GET(API_ROOT + '/' + state.selected_model_id)
     .then((json) => {
       commit('model', json)
-      commit('fetching_model', false)
+      setTimeout(() => {
+        commit('fetching_model', false)
+      }, 250)
     })
     .catch((err) => {
       commit('fetching_model', false)
@@ -56,32 +57,7 @@ export default {
     dispatch('fetchModel')
   },
 
-  toggleOrderBy ({ state, commit }) {
-    const ORDER_ASC = 'asc'
-    const ORDER_DESC = 'desc'
-    if (state.orderBy === ORDER_ASC) {
-      commit('orderBy', ORDER_DESC)
-    } else {
-      commit('orderBy', ORDER_ASC)
-    }
-  },
-
-  submitSearch  ({ state, commit, dispatch }) {
-    router.push('/sites')
-  },
-
-  // module/toggleInactive
-  toggleInactive ({ state, commit, dispatch }) {
-    if (state.showingInactive) {
-      commit('showingInactive', false)
-    } else {
-      commit('showingInactive', true)
-    }
-    // Re-fetches the collection
-    dispatch('fetchCollection')
-  },
-
-  // module/setFilter
+  // setFilter
   // Updates the current search query, invokes the module/filter mutation
   setFilter ({ commit, dispatch }, filter) {
     if (!debouncedFetch) {
@@ -103,7 +79,7 @@ export default {
   // clearQuery
   // Clears state.city and state.filter
   clearQuery ({ commit, dispatch }) {
-    commit('city', '')
+    commit('city', 'Troy')
     commit('filter', '')
     commit('currentPage', 1)
     dispatch('fetchCollection')

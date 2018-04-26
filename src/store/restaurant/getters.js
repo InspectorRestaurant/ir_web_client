@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import { API_ROOT } from './constants'
 import { PAGINATION_GETTERS } from '@/store/lib/mixins'
 
@@ -31,17 +30,6 @@ export default {
   },
   orderBy: state => {
     return state.orderBy
-  },
-  filteredCollection: state => {
-    return _.chain(state.collection)
-    .filter(u => {
-      return u.facility.toLowerCase().indexOf(state.filter.toLowerCase()) !== -1
-    })
-    // .orderBy(['data.report_data.warningCount', 'data.report_data.errorCount', 'data.report_data.noticeCount'], ['desc'])
-    // .orderBy(['data.report_data.errorCount'], ['desc'])
-    // .drop(state.start)
-    // .take(state.pageSize)
-    .value()
   },
   apiQuery: state => {
     let query = {}

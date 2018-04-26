@@ -8,8 +8,10 @@
         <Pagination module="restaurant" />
         <RestaurantList v-if="!fetching" />
       </div>
-      <div class="col-lg-8 col-md-6 col-sm-12 d-xs-none d-sm-none d-md-block">
-        <RestaurantDetail v-if="!fetching" />
+      <div class="col-lg-8 col-md-6 col-sm-12">
+        <Loading :loading="fetchingModel">
+          <RestaurantDetail v-if="!fetchingModel" />
+        </Loading>
       </div>
     </div>
 
@@ -20,6 +22,7 @@
 
 <script>
 import Search from '@/components/Search'
+import Loading from '@/components/Loading'
 import CitySearch from '@/components/CitySearch'
 import Pagination from '@/components/Pagination'
 import RestaurantList from './RestaurantList'
@@ -33,6 +36,7 @@ export default {
   },
   components: {
     Search,
+    Loading,
     CitySearch,
     Pagination,
     RestaurantList,
@@ -56,7 +60,8 @@ export default {
     hideSplash: 'main/hideSplash'
   }),
   computed: mapGetters({
-    fetching: 'restaurant/fetching'
+    fetching: 'restaurant/fetching',
+    fetchingModel: 'restaurant/fetching_model'
   })
 }
 </script>
