@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import main from './main'
 import restaurant from './restaurant'
 import violation from './violation'
 import city from './city'
@@ -11,6 +12,7 @@ Vue.use(Vuex)
 // This is empty right now, but later is will manage the state of our app
 export default new Vuex.Store({
   modules: {
+    main,
     restaurant,
     violation,
     city

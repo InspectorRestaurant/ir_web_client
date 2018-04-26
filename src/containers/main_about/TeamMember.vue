@@ -1,14 +1,7 @@
 <template>
-  <div v-bind:id="3" class="row mb-5">
-    <div class="col-lg-8">
-        <h1 class="display-3">{{ name }}</h1>
-        <p>{{ bio }} </p>
-
-    </div>
-
-    <div class="col-lg-4">
-      <img class='logo' src="@/assets/logo.png">
-    </div>
+  <div class="col-lg-6">
+    <h2>{{ name }}</h2>
+    <p class='lead'>{{ bio }} </p>
   </div>
 </template>
 
