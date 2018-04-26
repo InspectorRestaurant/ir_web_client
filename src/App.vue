@@ -51,7 +51,6 @@ export default {
     width: 100%
 
     &.splash
-      // background-image: url('/static/bg.jpg');
       background-image: url('https://farm6.staticflickr.com/5276/14350484785_cc8a156d57_o_d.jpg');
       background-repeat: no-repeat;
       background-size: cover;

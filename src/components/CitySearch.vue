@@ -33,7 +33,7 @@ export default {
       updateCity: 'restaurant/city'
     }),
     onInput (city) {
-      if (!city) return
+      if (city === '') return
       if (this.dispatch) {
         this.setCity(city)
       } else {
