@@ -12,6 +12,7 @@ export default {
   ...PAGINATION_ACTIONS,
   fetchCollection: ({ state, getters, commit, dispatch }) => {
     commit('fetching', true)
+    commit('fetching_model', true)
 
     // Fetches Collection from the server
     $GET(getters['fetchUrl'], {
