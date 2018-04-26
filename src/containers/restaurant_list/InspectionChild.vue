@@ -1,10 +1,14 @@
 <template>
   <a :class="className" @click="toggleViolations()">
     <div class="row px-4 py-4">
+
       <div class="col-sm-4 align-items-center d-flex">
         <span :class="`badge badge-${score.css} grade-badge mr-4`">
           {{ score.grade }}
         </span>
+
+        <i class="fa fa-star icon-perfect text-warning" v-if="perfectScore"></i>
+
         <span class='hover-hide'>
           <i class="fa fa-fw fa-calendar-o"></i>
           {{ howLongAgo}}
@@ -14,6 +18,7 @@
           {{ inspection.date }}
         </span>
       </div>
+
       <div class="col-sm-8 text-right">
         <span class="badge badge-secondary" v-if="inspection.type !== 'Inspection'">
           {{ inspection.type }}
@@ -103,6 +108,10 @@ export default {
         return 'Perfect'
       }
     },
+    perfectScore () {
+      if (this.hasViolations()) return false
+      return true
+    },
     hasComment () {
       return this.inspection.comment !== 'None'
     },
@@ -152,6 +161,11 @@ export default {
 <style lang="sass" scoped>
   span.badge.grade-badge
     font-size: 120%
+
+  i.fa.icon-perfect
+    position: absolute
+    top: -.5rem
+    left: 2.25rem
 
   a.list-group-item
     span.hover-hide

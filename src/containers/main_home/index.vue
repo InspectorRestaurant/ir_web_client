@@ -60,10 +60,14 @@ export default {
 
 <style lang="sass">
   .v-select-lg
-    .dropdown-toggle
-      border-color: #f3f3f3
-      background: #f3f3f3
-      padding: .5rem 0
-      align-items: center
-      font-size: 120%
+    .row
+      .col-lg-12
+        .form-inline.pb-3
+          .v-select
+            .dropdown-toggle
+              border-color: #f3f3f3
+              background: #f3f3f3
+              padding: .5rem 0
+              align-items: center
+              font-size: 120%
 </style>
