@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="container-fluid bg-dark text-light">
+    <div class="container-fluid text-light">
       <div class="row">
 
         <div class="col-sm-6">
@@ -34,4 +34,6 @@ export default {}
     width: 100%
     bottom: 0
     line-height: 3rem
+    .container-fluid
+      background: rgba(#333333, 0.5)
 </style>

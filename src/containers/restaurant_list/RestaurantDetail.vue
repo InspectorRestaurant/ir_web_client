@@ -3,7 +3,6 @@
 
     <div class="col-lg-12" v-if="model && model.address">
       <p class="lead font-weight-bold mb-0">
-        <!-- {{ model.facility }} -->
         {{ model.operation_name }}
       </p>
 
