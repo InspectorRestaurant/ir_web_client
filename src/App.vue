@@ -2,7 +2,9 @@
 <template>
   <div id="app" :class="className">
     <Navbar/>
-    <router-view/>
+    <div class="wrapper">
+      <router-view/>
+    </div>
     <Footer/>
   </div>
 </template>
@@ -49,13 +51,19 @@ export default {
   #app
     height: 100%
     width: 100%
+    overflow: hidden
 
     &.splash
-      background-image: url('https://farm6.staticflickr.com/5276/14350484785_cc8a156d57_o_d.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
+      background-image: url('https://farm6.staticflickr.com/5276/14350484785_cc8a156d57_o_d.jpg')
+      background-repeat: no-repeat
+      background-size: cover
 
-    .container, .contianer-fluid
-      padding-top: 4.5rem
+    .wrapper
+      overflow-y: scroll
+      height: 100%
+      width: 100%
+
+      .container, .contianer-fluid
+        padding-top: 4.5rem
 
 </style>

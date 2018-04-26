@@ -7,11 +7,12 @@
           <div class="col-lg-12 text-center text-light">
 
             <h1>
-              <strong>Inspector</strong>Restaurant
+              <strong>Inspector.</strong>Restaurant
             </h1>
 
             <p class="lead">
-              How clean is your favorite restaurant?
+              <!-- How clean is your favorite restaurant? -->
+              View health inspection history for restaurants in NY State
             </p>
 
           </div>

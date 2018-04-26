@@ -23,15 +23,11 @@ export default {
 
     // Defines Vue.component.computed
     this.$options.computed = mapGetters({
-      orderBy: `${module}/orderBy`,
-      showingInactive: `${module}/showingInactive`,
       filter: `${module}/filter`
     })
 
     // Defines Vue.component.methods
     this.$options.methods = mapActions({
-      toggleOrder: `${module}/toggleOrderBy`,
-      toggleInactive: `${module}/toggleInactive`,
       setFilter: `${module}/setFilter`
     })
   }

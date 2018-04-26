@@ -16,19 +16,14 @@
         <p class="lead">
           The data made available by InspectorRestaurant is offered without any explicit or implied promises or guaranteees of correctness or validity.
         </p>
+
         <p class="lead">
-          Data is updated every 30 days, we strive to provide the most accurate information as possible for our users.
+          We currently only maintain data for restaurants in New York State, but we are working to expand the reach of InspectorRestaurants to other states that publish health inspection data.
         </p>
 
         <p class="lead">
-          Currently we only include New York state data, we apologize for any inconvenience caused by that but we are constantly working to expand to the rest of the United States (then the world, then the universe*)
-        </p>
-
-        <p class="lead">
-          If there are any discrepancies with the data presented, please forward that information to the owner of the dataset at
-          <a href="https://health.data.ny.gov/Health/Food-Service-Establishment-Inspections-Beginning-2/2hcc-shji" target='_blank'>
-            health.data.ny.gov
-          </a>
+          Any discrepancies in the data should be forwarded to the dataset owner at
+          <a href="https://health.data.ny.gov/Health/Food-Service-Establishment-Inspections-Beginning-2/2hcc-shji" target='_blank'>health.data.ny.gov</a>.
         </p>
 
         <p class="lead">
@@ -37,9 +32,7 @@
 
         <p class="lead">
           Data provided by
-          <a href="https://health.data.ny.gov/Health/Food-Service-Establishment-Inspections-Beginning-2/2hcc-shji" target='_blank'>
-            health.data.ny.gov
-          </a>
+          <a href="https://health.data.ny.gov/Health/Food-Service-Establishment-Inspections-Beginning-2/2hcc-shji" target='_blank'>health.data.ny.gov</a>
         </p>
 
       </div>
