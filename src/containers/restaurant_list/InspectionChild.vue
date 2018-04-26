@@ -5,6 +5,7 @@
       <div class="col-sm-4 align-items-center d-flex">
         <span :class="`badge badge-${score.css} grade-badge mr-4`">
           {{ score.grade }}
+          <!-- {{ score.score }} -->
         </span>
 
         <i class="fa fa-star icon-perfect text-warning" v-if="perfectScore"></i>
@@ -137,21 +138,23 @@ export default {
       let score = 0
       _.each(violations, (v) => {
         if (v.critical) {
-          score += 5
+          // score += 5
+          score += 7
         } else {
-          score += 2
+          // score += 2
+          score += 3
         }
       })
 
       // Defines score
       if (score < 14) {
-        return { grade: 'A', css: 'success' }
+        return { grade: 'A', score: score, css: 'success' }
       } else if (score < 28) {
-        return { grade: 'B', css: 'primary' }
+        return { grade: 'B', score: score, css: 'primary' }
       } else if (score < 42) {
-        return { grade: 'C', css: 'warning' }
+        return { grade: 'C', score: score, css: 'warning' }
       } else {
-        return { grade: 'D', css: 'danger' }
+        return { grade: 'D', score: score, css: 'danger' }
       }
     }
   }

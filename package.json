@@ -1,9 +1,6 @@
 {
-  "name": "blazeplate_web_client",
+  "name": "ir_web_client",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Alexander Schwartzberg <aeksco@gmail.com>",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "npm run dev",
@@ -14,7 +11,6 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "axios": "^0.17.0",
     "bootstrap": "^4.0.0-beta.2",
     "bootstrap-vue": "^1.0.2",
     "lodash": "^4.17.4",
