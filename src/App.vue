@@ -1,6 +1,6 @@
 
 <template>
-  <div id="app">
+  <div id="app" :class="className">
     <Navbar/>
     <router-view/>
     <Footer/>
@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
@@ -23,8 +24,16 @@ export default {
     htmlAttrs: {
       lang: 'en'
     }
+  },
+  computed: {
+    ...mapGetters({
+      showBgImage: 'main/splash'
+    }),
+    className () {
+      if (this.showBgImage) return 'splash'
+      return ''
+    }
   }
-
 }
 </script>
 
@@ -40,8 +49,12 @@ export default {
   #app
     height: 100%
     width: 100%
-    // background-image: url('/static/bg.jpg');
-    background-repeat: no-repeat;
+
+    &.splash
+      // background-image: url('/static/bg.jpg');
+      background-image: url('https://farm6.staticflickr.com/5276/14350484785_cc8a156d57_o_d.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
 
     .container, .contianer-fluid
       padding-top: 4.5rem

@@ -4,18 +4,11 @@
     <div class="row">
       <div class="col-lg-4 col-md-6 col-sm-12">
         <CitySearch :dispatch="true" />
-      </div>
-      <div class="col-lg-8 pl-lg-0 col-md-6 col-sm-12">
         <Search :module='"restaurant"' placeholder="Filter Restaurants" />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-4 col-md-6 col-sm-12">
         <Pagination module="restaurant" />
         <RestaurantList v-if="!fetching" />
       </div>
-      <div class="col-lg-8 pl-lg-0 col-md-6 col-sm-12">
+      <div class="col-lg-8 col-md-6 col-sm-12 d-xs-none d-sm-none d-md-block">
         <RestaurantDetail v-if="!fetching" />
       </div>
     </div>
@@ -46,6 +39,7 @@ export default {
     RestaurantDetail
   },
   created () {
+    this.hideSplash()
     this.fetchViolations()
     if (this.$route.query.city) {
       this.$store.dispatch('restaurant/setCity', this.$route.query.city)
@@ -54,12 +48,12 @@ export default {
     }
   },
   destroyed () {
-    console.log('DESTROYED')
     this.$store.commit('restaurant/city', '')
   },
   methods: mapActions({
     fetch: 'restaurant/fetchCollection',
-    fetchViolations: 'violation/fetchCollection'
+    fetchViolations: 'violation/fetchCollection',
+    hideSplash: 'main/hideSplash'
   }),
   computed: mapGetters({
     fetching: 'restaurant/fetching'

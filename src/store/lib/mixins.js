@@ -31,7 +31,7 @@ export const COLLECTION_STATE = {
 
 export const PAGINATION_STATE = {
   start: 0,
-  pageSize: 8,
+  pageSize: 6,
   currentPage: 1,
   paginatedCollection: []
 }

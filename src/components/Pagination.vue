@@ -5,13 +5,16 @@
       <div class="btn-group w-100">
         <button :disabled="currentPage === 1" class="btn btn-outline-primary w-33" @click="prevPage()">
           <i class="fa fa-angle-left"></i>
+          Prev
         </button>
 
         <button disabled class="btn btn-outline-primary w-33">
+          Page
           {{ currentPage }}
         </button>
 
         <button class="btn btn-outline-primary w-33" @click="nextPage()">
+          Next
           <i class="fa fa-angle-right"></i>
         </button>
       </div>

@@ -100,7 +100,7 @@ export default {
         if (len > 1) return `${len} Violations`
         return `${len} Violation`
       } else {
-        return 'No Violations'
+        return 'Perfect'
       }
     },
     hasComment () {

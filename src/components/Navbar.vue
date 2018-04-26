@@ -8,12 +8,30 @@
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
     <b-collapse is-nav id="nav_collapse">
 
+      <!-- Left Nav -->
       <b-navbar-nav class="mr-auto">
-        <b-nav-item href="#/restaurants">Restaurants</b-nav-item>
-        <b-nav-item href="#/about">About</b-nav-item>
+        <b-nav-item href="#/restaurants">
+          <i class="fa fa-fw fa-cutlery"></i>
+          Restaurants
+        </b-nav-item>
+
+        <b-nav-item disabled>|</b-nav-item>
+
+        <b-nav-item href="#/about">
+          <i class="fa fa-fw fa-question-circle"></i>
+          About
+        </b-nav-item>
       </b-navbar-nav>
 
+      <!-- Right Nav -->
       <b-navbar-nav class="ml-auto">
+        <b-nav-item href="#/terms">
+          <i class="fa fa-fw fa-info-circle"></i>
+          Terms of Use
+        </b-nav-item>
+
+        <b-nav-item disabled>|</b-nav-item>
+
         <b-nav-item target="_blank" href="https://github.com/InspectorRestaurant">
           <i class="fa fa-fw fa-lg fa-github"></i>
           GitHub
@@ -38,7 +56,3 @@ export default {
     strong
       font-weight: 600
 </style>
-
-
-
-

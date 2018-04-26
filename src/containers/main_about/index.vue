@@ -91,6 +91,7 @@
 <!-- // // // //  -->
 
 <script>
+import { mapActions } from 'vuex'
 import TeamMember from './TeamMember'
 
 export default {
@@ -100,7 +101,13 @@ export default {
   },
   metaInfo: {
     title: 'About'
-  }
+  },
+  created () {
+    this.hideSplash()
+  },
+  methods: mapActions({
+    hideSplash: 'main/hideSplash'
+  })
 }
 </script>
 

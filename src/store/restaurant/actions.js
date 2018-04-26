@@ -8,8 +8,7 @@ let debouncedFetch
 
 // // // //
 
-// Project module actions
-// functions that causes side effects and can involve asynchronous operations.
+// Restaurant module actions
 export default {
   ...PAGINATION_ACTIONS,
   fetchCollection: ({ state, getters, commit, dispatch }) => {
@@ -23,8 +22,8 @@ export default {
       }
     })
     .then((json) => {
-      commit('page', json.page)
-      commit('per_page', json.per_page)
+      commit('currentPage', json.page)
+      commit('pageSize', json.per_page)
       commit('collection', json.items)
       commit('fetching', false)
 
@@ -98,6 +97,15 @@ export default {
   // Updates the current city query
   setCity ({ commit, dispatch }, city) {
     commit('city', city)
+    dispatch('fetchCollection')
+  },
+
+  // clearQuery
+  // Clears state.city and state.filter
+  clearQuery ({ commit, dispatch }) {
+    commit('city', '')
+    commit('filter', '')
+    commit('currentPage', 1)
     dispatch('fetchCollection')
   }
 

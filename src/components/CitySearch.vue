@@ -2,15 +2,7 @@
   <div class="row">
     <div class="col-lg-12">
       <form class="form-inline pb-3">
-        <v-select :options="cities" @input="onInput" />
-
-        <!-- <select placeholder="asd" class='form-control form-control-lg w-100' :value="city" @input="onInput($event.target.value)"> -->
-          <!-- <option value="" disabled selected>Select a city</option> -->
-          <!-- <option v-for='c in cities'> -->
-            <!-- {{ c }} -->
-          <!-- </option> -->
-        <!-- </select> -->
-
+        <v-select @input="onInput" :options="cities" :value="city" placeholder="Select a city" />
       </form>
     </div>
   </div>
@@ -41,7 +33,7 @@ export default {
       updateCity: 'restaurant/city'
     }),
     onInput (city) {
-      console.log(city)
+      if (!city) return
       if (this.dispatch) {
         this.setCity(city)
       } else {
