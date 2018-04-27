@@ -1,6 +1,6 @@
 <template>
   <a :class="className" @click="select(model._id)">
-    {{ model.facility }}
+    {{ model.operation_name }}
   </a>
 </template>
 
