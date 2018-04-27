@@ -43,4 +43,3 @@ Styles will be pre-processed with SASS. This enables our team to leverage a vari
 Node Package Manager (NPM) to manage external dependencies
 Webpack will be used to compile all client-side assets for both development and production builds
 Static client-side assets will be served from either Amazon S3, or an additional Node/Express.js server. This reduces the load placed on the API server by eliminating its responsibility of serving static data.
-
