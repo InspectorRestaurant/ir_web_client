@@ -46,7 +46,7 @@ const searchProjection = {
 exports.handler = function(event, context, callback) {
 
   // Connects to MongoDB
-  MongoClient.connect(DB_URL, (err, connection) => {
+  MongoClient.connect(DB_URL, { useNewUrlParser: true }, (err, connection) => {
 
     // Connection error handling
     if (err) return errorResponse(callback, err);
