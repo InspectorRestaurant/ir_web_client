@@ -45,6 +45,10 @@ const searchProjection = {
 // GET /api/restaurants
 exports.handler = function(event, context, callback) {
 
+  console.log('INSIDE HANDLER!!')
+  console.log(DB_URL)
+  console.log(DB_NAME)
+
   // Connects to MongoDB
   MongoClient.connect(DB_URL, { useNewUrlParser: true }, (err, connection) => {
 
