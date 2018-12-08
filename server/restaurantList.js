@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 // const { errorResponse, successResponse, handlePagination } = require('./helpers');
-const DB_URL = process.env.DB;
-const DB_NAME = process.env.DB_NAME;
+const DB_URL = `${process.env.DB}`;
+const DB_NAME = `${process.env.DB_NAME}`;
 
 function errorResponse(callback, err) {
   console.error(err);
