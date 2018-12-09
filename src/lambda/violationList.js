@@ -24,16 +24,17 @@ function successResponse(callback, res) {
 
 // // // //
 
-// GET /api/restaurants
+// GET /api/violations
 export function handler(event, context, callback) {
   MongoClient.connect(DB_URL, (err, connection) => {
     if (err) return errorResponse(callback, err);
 
     const db = connection.db(DB_NAME);
-    const restaurantCollection = db.collection('restaurants');
+    const violationCollection = db.collection('violations');
 
     // GET /api/cities
-    restaurantCollection.distinct('address.city', (err, result) => {
+    violationCollection.find({})
+    .toArray((err, result) => {
         if (err) return errorResponse(callback, err);
 
         // res.setHeader('Cache-Control', 'max-age=604800, public');
