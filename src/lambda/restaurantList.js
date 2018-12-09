@@ -42,7 +42,7 @@ const searchProjection = {
 }
 
 // GET /api/restaurants
-exports.handler = function(event, context, callback) {
+export function handler(event, context, callback) {
 
   // Connects to MongoDB
   MongoClient.connect(DB_URL, { useNewUrlParser: true }, (err, connection) => {

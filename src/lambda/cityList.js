@@ -25,7 +25,7 @@ function successResponse(callback, res) {
 // // // //
 
 // GET /api/restaurants
-exports.handler = function(event, context, callback) {
+export function handler(event, context, callback) {
   MongoClient.connect(DB_URL, (err, connection) => {
     if (err) return errorResponse(callback, err);
 
