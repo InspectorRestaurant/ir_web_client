@@ -10,10 +10,14 @@ import store from '@/store'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+// new Vue({
+//   el: '#app',
+//   template: '<App/>',
+//   components: { App }
+// })
+
 new Vue({
-  el: '#app',
   store,
   router: router,
-  template: '<App/>',
-  components: { App }
-})
+  render: h => h(App)
+}).$mount('#app')

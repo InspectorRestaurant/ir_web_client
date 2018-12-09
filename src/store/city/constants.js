@@ -1,1 +1,1 @@
-export const API_ROOT = '/api/cities'
+export const API_ROOT = '/.netlify/functions/cityList'

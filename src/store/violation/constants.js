@@ -1,1 +1,1 @@
-export const API_ROOT = '/api/violations'
+export const API_ROOT = '/.netlify/functions/violationList'
