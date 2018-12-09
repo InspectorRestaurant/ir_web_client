@@ -1,4 +1,4 @@
-const qs = require('qs')
+import qs from 'qs'
 
 // REST verbs
 const GET = 'get'
