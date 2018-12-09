@@ -1,4 +1,4 @@
-import { API_ROOT } from './constants'
+import { API_ROOT, API_SEARCH } from './constants'
 import { PAGINATION_GETTERS } from '@/store/lib/mixins'
 
 // Project Module Getters
@@ -38,10 +38,9 @@ export default {
     return query
   },
   fetchUrl: state => {
-    let fetchUrl = API_ROOT
     if (state.city || state.filter) {
-      fetchUrl += '/search'
+      return API_SEARCH
     }
-    return fetchUrl
+    return API_ROOT
   }
 }

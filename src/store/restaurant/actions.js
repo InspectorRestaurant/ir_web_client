@@ -15,7 +15,7 @@ export default {
     commit('fetching_model', true)
 
     // Fetches Collection from the server
-    $GET(API_ROOT, {
+    $GET(getters['fetchUrl'], {
       query: {
         ...getters['paginationQuery'],
         ...getters['apiQuery']
