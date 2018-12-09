@@ -1,5 +1,4 @@
 const { MongoClient } = require('mongodb');
-// const { errorResponse, successResponse, handlePagination } = require('./helpers');
 const DB_URL = `${process.env.DB}`;
 const DB_NAME = `${process.env.DB_NAME}`;
 
@@ -44,10 +43,6 @@ const searchProjection = {
 
 // GET /api/restaurants
 exports.handler = function(event, context, callback) {
-
-  console.log('INSIDE HANDLER!!')
-  console.log(DB_URL)
-  console.log(DB_NAME)
 
   // Connects to MongoDB
   MongoClient.connect(DB_URL, { useNewUrlParser: true }, (err, connection) => {
