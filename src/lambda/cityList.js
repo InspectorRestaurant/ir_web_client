@@ -70,21 +70,20 @@ export function handler(event, context, callback) {
     // Gets distinct cities
     restaurantCollection.distinct('address.city', (err, result) => {
 
-          // Handles find query error
-          if (err) return errorResponse(callback, err);
+      // Handles find query error
+      if (err) return errorResponse(callback, err);
 
-          // Closes the DB connection
-          connection.close();
+      // Closes the DB connection
+      connection.close();
 
-          // Sends response to client
-          callback(null, {
-            statusCode: 200,
-            body: JSON.stringify(result)
-          });
-
-        })
+      // Sends response to client
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(result)
+      });
 
     })
 
-  });
+  })
+
 }

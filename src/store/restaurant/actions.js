@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { $GET } from '@/store/lib/rest'
-import { API_ROOT, API_RESTAURANT_SHOW } from './constants'
+import { API_RESTAURANT_SHOW } from './constants'
 import { PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
 let debouncedFetch
