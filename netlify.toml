@@ -6,7 +6,7 @@
 # A basic redirect rule
 [[redirects]]
   from = "/api/restaurants"
-  to = "/.netlify/functions/restaurants"
+  to = "/.netlify/functions/restaurantList"
 
   # By default, redirects won't be applied if there's a file with the same
   # path as the one defined in the `from` property. Setting `force` to `true`
