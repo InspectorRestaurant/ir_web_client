@@ -25,31 +25,6 @@ function successResponse(callback, res) {
 // // // //
 
 // GET /api/violations
-// export function handler(event, context, callback) {
-//   MongoClient.connect(DB_URL, (err, connection) => {
-//     if (err) return errorResponse(callback, err);
-
-//     const db = connection.db(DB_NAME);
-//     const violationCollection = db.collection('violations');
-
-//     violationCollection.find({})
-//     .toArray((err, result) => {
-//         if (err) return errorResponse(callback, err);
-
-//         // res.setHeader('Cache-Control', 'max-age=604800, public');
-//         callback(null, {
-//           statusCode: 200,
-//           body: JSON.stringify(result)
-//         });
-
-//     })
-
-//   });
-
-// }
-
-
-// GET /api/cities
 export function handler(event, context, callback) {
 
   // Connects to MongoDB
@@ -62,7 +37,7 @@ export function handler(event, context, callback) {
     const db = connection.db(DB_NAME);
     const violationCollection = db.collection('violations'); // TODO - constantize 'violations'
 
-    // Gets distinct cities
+    // Gets all violations
     violationCollection.find({})
     .toArray((err, result) => {
 
