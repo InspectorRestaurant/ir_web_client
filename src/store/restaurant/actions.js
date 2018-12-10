@@ -1,3 +1,4 @@
+import axios from 'axios'
 import debounce from 'lodash/debounce'
 import { $GET } from '@/store/lib/rest'
 import { API_RESTAURANT_SHOW } from './constants'
@@ -15,6 +16,7 @@ export default {
     commit('fetching_model', true)
 
     // Fetches Collection from the server
+    // TODO -  replace with axios.get
     $GET(getters['fetchUrl'], {
       query: {
         ...getters['paginationQuery'],
@@ -40,9 +42,9 @@ export default {
     commit('fetching_model', true)
 
     // Fetches Model from the server
-    $GET(API_RESTAURANT_SHOW + '?id=' + state.selected_model_id)
-    .then((json) => {
-      commit('model', json)
+    axios.get(API_RESTAURANT_SHOW + '?id=' + state.selected_model_id)
+    .then(({ data }) => {
+      commit('model', data)
       setTimeout(() => {
         commit('fetching_model', false)
       }, 250)
