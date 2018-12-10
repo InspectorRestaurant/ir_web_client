@@ -64,9 +64,6 @@ export function handler(event, context, callback) {
     const db = connection.db(DB_NAME);
     const restaurantCollection = db.collection('restaurants'); // TODO - constantize 'restaurants'
 
-    // Pulls pagination parameters
-    const { page, per_page, skip } = handlePagination(event.queryStringParameters || {})
-
     // Gets distinct cities
     restaurantCollection.distinct('address.city', (err, result) => {
 
