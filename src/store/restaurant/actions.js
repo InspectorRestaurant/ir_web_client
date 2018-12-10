@@ -1,6 +1,5 @@
 import axios from 'axios'
 import debounce from 'lodash/debounce'
-import { $GET } from '@/store/lib/rest'
 import { API_RESTAURANT_SHOW } from './constants'
 import { PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
@@ -16,21 +15,20 @@ export default {
     commit('fetching_model', true)
 
     // Fetches Collection from the server
-    // TODO -  replace with axios.get
-    $GET(getters['fetchUrl'], {
-      query: {
+    axios.get(getters['fetchUrl'], {
+      params: {
         ...getters['paginationQuery'],
         ...getters['apiQuery']
       }
     })
-    .then((json) => {
-      commit('currentPage', json.page)
-      commit('pageSize', json.per_page)
-      commit('collection', json.items)
+    .then(({ data }) => {
+      commit('currentPage', data.page)
+      commit('pageSize', data.per_page)
+      commit('collection', data.items)
       commit('fetching', false)
 
       // Fetches the first model in response
-      if (json.items[0]) dispatch('selectModel', json.items[0]._id)
+      if (data.items[0]) dispatch('selectModel', data.items[0]._id)
     })
     .catch((err) => {
       commit('fetching', false)
