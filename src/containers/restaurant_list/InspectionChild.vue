@@ -58,7 +58,7 @@
 <!-- // // // //  -->
 
 <script>
-import _ from 'lodash'
+import uniqueId from 'lodash/uniqueId'
 import moment from 'moment'
 export default {
   name: 'inspection_child',
@@ -120,23 +120,21 @@ export default {
       return moment(this.inspection.date).fromNow()
     },
     violations () {
-      return _.chain(this.$store.getters['violation/collection'])
-      .filter((v) => {
+      return this.$store.getters['violation/collection'].filter((v) => {
         return this.inspection.violations.includes(v.vid)
       })
       .map((v) => {
-        v.id = _.uniqueId('VIOLATION_')
+        v.id = uniqueId('VIOLATION_')
         return v
       })
-      .value()
     },
     score () {
-      let violations = _.filter(this.$store.getters['violation/collection'], (v) => {
+      let violations = this.$store.getters['violation/collection'].filter((v) => {
         return this.inspection.violations.includes(v.vid)
       })
 
       let score = 0
-      _.each(violations, (v) => {
+      violations.forEach((v) => {
         if (v.critical) {
           // score += 5
           score += 7

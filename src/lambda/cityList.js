@@ -51,7 +51,7 @@ function successResponse(callback, res) {
 
 // // // //
 
-// GET /api/restaurants
+// GET /api/cities
 export function handler(event, context, callback) {
 
   // Connects to MongoDB
