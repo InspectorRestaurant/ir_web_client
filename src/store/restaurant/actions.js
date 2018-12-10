@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import debounce from 'lodash/debounce'
 import { $GET } from '@/store/lib/rest'
 import { API_RESTAURANT_SHOW } from './constants'
 import { PAGINATION_ACTIONS } from '@/store/lib/mixins'
@@ -62,7 +62,7 @@ export default {
   // Updates the current search query, invokes the module/filter mutation
   setFilter ({ commit, dispatch }, filter) {
     if (!debouncedFetch) {
-      debouncedFetch = _.debounce((localFilter) => {
+      debouncedFetch = debounce((localFilter) => {
         commit('filter', localFilter)
         dispatch('fetchCollection')
       }, 800)
