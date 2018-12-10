@@ -12,3 +12,7 @@
   # path as the one defined in the `from` property. Setting `force` to `true`
   # will make the redirect rule take precedence over any existing files.
   force = true
+
+[[redirects]]
+  from = "/api/cities"
+  to = "/.netlify/functions/cityList"
