@@ -1,6 +1,6 @@
-import _ from 'lodash'
-import { $GET } from '@/store/lib/rest'
-import { API_ROOT, API_RESTAURANT_SHOW } from './constants'
+import axios from 'axios'
+import debounce from 'lodash/debounce'
+import { API_RESTAURANT_SHOW } from './constants'
 import { PAGINATION_ACTIONS } from '@/store/lib/mixins'
 
 let debouncedFetch
@@ -15,20 +15,20 @@ export default {
     commit('fetching_model', true)
 
     // Fetches Collection from the server
-    $GET(getters['fetchUrl'], {
-      query: {
+    axios.get(getters['fetchUrl'], {
+      params: {
         ...getters['paginationQuery'],
         ...getters['apiQuery']
       }
     })
-    .then((json) => {
-      commit('currentPage', json.page)
-      commit('pageSize', json.per_page)
-      commit('collection', json.items)
+    .then(({ data }) => {
+      commit('currentPage', data.page)
+      commit('pageSize', data.per_page)
+      commit('collection', data.items)
       commit('fetching', false)
 
       // Fetches the first model in response
-      if (json.items[0]) dispatch('selectModel', json.items[0]._id)
+      if (data.items[0]) dispatch('selectModel', data.items[0]._id)
     })
     .catch((err) => {
       commit('fetching', false)
@@ -40,9 +40,9 @@ export default {
     commit('fetching_model', true)
 
     // Fetches Model from the server
-    $GET(API_RESTAURANT_SHOW + '?id=' + state.selected_model_id)
-    .then((json) => {
-      commit('model', json)
+    axios.get(API_RESTAURANT_SHOW + '?id=' + state.selected_model_id)
+    .then(({ data }) => {
+      commit('model', data)
       setTimeout(() => {
         commit('fetching_model', false)
       }, 250)
@@ -62,7 +62,7 @@ export default {
   // Updates the current search query, invokes the module/filter mutation
   setFilter ({ commit, dispatch }, filter) {
     if (!debouncedFetch) {
-      debouncedFetch = _.debounce((localFilter) => {
+      debouncedFetch = debounce((localFilter) => {
         commit('filter', localFilter)
         dispatch('fetchCollection')
       }, 800)

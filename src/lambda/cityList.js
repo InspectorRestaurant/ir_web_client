@@ -24,26 +24,36 @@ function successResponse(callback, res) {
 
 // // // //
 
-// GET /api/restaurants
+// GET /api/cities
 export function handler(event, context, callback) {
-  MongoClient.connect(DB_URL, (err, connection) => {
+
+  // Connects to MongoDB
+  MongoClient.connect(DB_URL, { useNewUrlParser: true }, (err, connection) => {
+
+    // Connection error handling
     if (err) return errorResponse(callback, err);
 
+    // DB helpers
     const db = connection.db(DB_NAME);
-    const restaurantCollection = db.collection('restaurants');
+    const restaurantCollection = db.collection('restaurants'); // TODO - constantize 'restaurants'
 
-    // GET /api/cities
+    // Gets distinct cities
     restaurantCollection.distinct('address.city', (err, result) => {
-        if (err) return errorResponse(callback, err);
 
-        // res.setHeader('Cache-Control', 'max-age=604800, public');
-        callback(null, {
-          statusCode: 200,
-          body: JSON.stringify(result)
-        });
+      // Handles find query error
+      if (err) return errorResponse(callback, err);
+
+      // Closes the DB connection
+      connection.close();
+
+      // Sends response to client
+      callback(null, {
+        statusCode: 200,
+        body: JSON.stringify(result)
+      });
 
     })
 
-  });
+  })
 
 }
