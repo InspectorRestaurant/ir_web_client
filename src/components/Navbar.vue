@@ -1,7 +1,7 @@
 <template>
   <b-navbar toggleable="md" type="dark" variant="danger" fixed="top">
 
-    <b-navbar-brand href="#/">
+    <b-navbar-brand to="/">
       <strong>Inspector.</strong>Restaurant
     </b-navbar-brand>
 
@@ -10,14 +10,14 @@
 
       <!-- Left Nav -->
       <b-navbar-nav class="mr-auto">
-        <b-nav-item href="#/restaurants">
+        <b-nav-item to="/restaurants">
           <i class="fa fa-fw fa-cutlery"></i>
           Restaurants
         </b-nav-item>
 
         <b-nav-item disabled>|</b-nav-item>
 
-        <b-nav-item href="#/about">
+        <b-nav-item to="/terms">
           <i class="fa fa-fw fa-question-circle"></i>
           About
         </b-nav-item>
@@ -25,10 +25,10 @@
 
       <!-- Right Nav -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-item href="#/terms">
-          <i class="fa fa-fw fa-info-circle"></i>
-          Terms of Use
-        </b-nav-item>
+        <!-- <b-nav-item to="/terms"> -->
+          <!-- <i class="fa fa-fw fa-info-circle"></i> -->
+          <!-- Terms of Use -->
+        <!-- </b-nav-item> -->
 
         <b-nav-item disabled>|</b-nav-item>
 
